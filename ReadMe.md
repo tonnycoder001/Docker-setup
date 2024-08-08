@@ -14,6 +14,6 @@ You can add your own dependencies in the docker file,
 Commands and
 Extensions
 
-# For docker CLI. Visit this site
+# For docker CLI/Commands. Visit this site
 
 https://docs.docker.com/reference/cli/docker/
