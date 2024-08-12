@@ -1,26 +1,36 @@
-FROM php:8.1-fpm
+FROM php:8.1.0-apache
 WORKDIR /var/www/html
 
-#linux library
-RUN apt-get update -y && apt-get install -y\
-    libicu-dev\
-    libmariadb-dev\
-    libpng-dev\
-    libonig-dev\
-    libxml2-dev\
-    libzip-dev\
-    zip\
-    unzip\
-    && docker-php-ext-install -j$(nproc) iconv intl mbstring mysqli opcache pdo_mysql zip
+#Mod Rewrite
+RUN a2enmod rewrite
 
-# Install Composer (PHP package manager)
+#Linux Library
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libmariadb-dev \
+    libonig-dev \
+    libxml2-dev \
+    libpng-dev \
+    libjpeg-dev \
+    zip \
+    unzip\ 
+    && apt-get clean
+
+#MariaDB
+RUN docker-php-ext-install pdo_mysql && docker-php-ext-enable pdo_mysql
+
+#Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy application files to the container
-COPY . /var/www
+#PHP Extension
+RUN docker-php-ext-install gettext intl pdo_mysql gd
 
-# Command to run PHP-FPM
-CMD ["php-fpm"]
+RUN docker-php-ext-enable pdo_mysql
 
-# Expose ports
-EXPOSE 80
+#Copy Files
+COPY . /var/www/html
+
+
+
+
+
