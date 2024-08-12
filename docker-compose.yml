@@ -1,34 +1,24 @@
-#Replace pneumatika with the name of your project
-#Replace /pneumatika with the path to your project
-#Replace 8000 with the port you want to use
-#Replace root with the password you want to use
-#Replace pneumatika with the name of your database
-#Replace 3306 with the port you want to use for the database
-#Change the container name to the name of your choice
 services:
-  #App Server
-  laravel-docker-app:
-    container_name: laravel-pneumatika
+  laravel-docker:
+    container_name: laravel-docker
     build: .
-
     volumes:
-      - /pneumatika:/var/www/html
+      - ./laravel-app:/var/www/html
     ports:
-      - "8000:80"
+      - 9000:80
 
-  #Database
   mysql_db:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: pneumatika
+      MYSQL_DATABASE: laravel_docker
     ports:
-      - "3306:3306"
-  #phpMyAdmin Server
+      - 3206:3206
+
   phpmyadmin:
     image: phpmyadmin:latest
     ports:
-      - "8080:80"
+      - 9001:80
     environment:
       PMA_HOST: mysql_db
-      PMA_PORT: 3306
+      PMA_PORT: 3206
