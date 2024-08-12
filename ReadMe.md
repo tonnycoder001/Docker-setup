@@ -8,10 +8,10 @@ Replace the database name with the name of your database, for example, "my_datab
 
 # In Makefile
 
-make data - will be used to run the migration and seed command
-composer update - will be used to run the composer update command
-docker build - will be used to build the docker image
-docker up - will be used to run the docker-compose up command
+make data - will be used to run the migration and seed command,
+composer update - will be used to run the composer update command,
+docker build - will be used to build the docker image,
+docker up - will be used to run the docker-compose up command, and
 docker down - will be used to run the docker-compose down command
 
 # For docker CLI/Commands. Visit this site
