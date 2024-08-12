@@ -1,10 +1,10 @@
 # In docker-compose.yml
 
-Replace the container name with the name of your of your choice, for example, "my-mysql"
-Replace the port with the port of your choice, for example, "3306"
-Replace the image name with the mage of your choice,
-Replace the root password with the password you are using, for example, "root_password"
-Replace the database name with the name of your database, for example, "my_database"
+Replace the container name with the name of your of your choice, for example, "my-mysql".
+Replace the port with the port of your choice, for example, "3306".
+Replace the image name with the mage of your choice.
+Replace the root password with the password you are using, for example, "root_password".
+Replace the database name with the name of your database, for example, "my_database".
 
 # In Makefile
 
